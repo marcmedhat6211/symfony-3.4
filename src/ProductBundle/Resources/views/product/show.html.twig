@@ -1,0 +1,17 @@
+{% extends('base.html.twig') %}
+
+{% block body %}
+
+    <br><br>
+    <div class="column">
+        <div class="card">
+            <h2>{{ product.name }}</h2>
+            <h5>${{ product.price }}</h5>
+            <br>
+            <h6><strong>Product Code: </strong>{{ product.code }}</h6>
+            <h6><strong>Left in stock: </strong>{{ product.stock }}</h6>
+            <br>
+            <p>{{ product.description }}</p>
+        </div>
+    </div>
+{% endblock %}

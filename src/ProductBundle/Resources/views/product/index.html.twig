@@ -39,7 +39,7 @@
                 {% endif %}
             </td>
             <td>
-                <a class="btn btn-success btn-sm" href="">View</a>
+                <a class="btn btn-success btn-sm" href="{{ path('product.show', {id: product.id}) }}">View</a>
                 <a class="btn btn-primary btn-sm" href="{{ path('product.edit', {id: product.id}) }}">Edit</a>
                 <a class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product ?')" href="{{ path('product.delete', {id: product.id}) }}">Delete</a>
             </td>

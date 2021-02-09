@@ -23,9 +23,9 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class ProductController extends Controller
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/{page}", name="index", requirements={"page"="\d+"})
      */
-    public function indexAction(): Response
+    public function indexAction($page = 1): Response
     {
         $em = $this->getDoctrine()->getRepository(Product::class);
         $products = $em->findAll();
@@ -37,9 +37,19 @@ class ProductController extends Controller
     }
 
     /**
+     * @Route("/show/{id}", name="show")
+     */
+    public function show(Product $product) {
+
+        return $this->render('@Product/product/show.html.twig', [
+            'product' => $product,
+        ]);
+    }
+
+    /**
      * @Route("/create", name="create")
      */
-    public function create(Request $request) {
+    public function createAction(Request $request) {
         //getting the entity manager
         $em = $this->getDoctrine()->getManager();
         $product = new Product();
@@ -77,7 +87,7 @@ class ProductController extends Controller
     /**
      * @Route("/edit/{id}", name="edit")
      */
-    public function edit(Request $request, Product $product) {
+    public function editAction(Request $request, Product $product) {
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
@@ -100,11 +110,10 @@ class ProductController extends Controller
         ]);
     }
 
-
     /**
      * @Route("/delete/{id}", name="delete")
      */
-    public function destroy(Product $product) {
+    public function deleteAction(Product $product) {
         $em = $this->getDoctrine()->getManager();
         $em->remove($product);
         $em->flush();
