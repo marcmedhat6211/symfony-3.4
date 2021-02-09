@@ -5,18 +5,18 @@ app:
 #Category Entity routes
 category.index:
     path: /category/{page}
-    defaults: { _controller: ProductBundle:Product:index }
+    defaults: { _controller: ProductBundle:Category:index }
     requirements:
         page: '\d+'
 
 category.create:
     path: /category/create
-    defaults: { _controller: ProductBundle:Product:create }
+    defaults: { _controller: ProductBundle:Category:create }
 
 category.edit:
     path: /edit/{id}
-    defaults: { _controller: ProductBundle:Product:edit }
+    defaults: { _controller: ProductBundle:Category:edit }
 
 category.delete:
     path: /delete/{id}
-    defaults: { _controller: ProductBundle:Product:delete }
+    defaults: { _controller: ProductBundle:Category:delete }
