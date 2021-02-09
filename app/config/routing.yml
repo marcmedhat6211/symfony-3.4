@@ -1,0 +1,10 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+app_file:
+    # loads routes from the given routing file stored in some bundle
+    resource: '@ProductBundle/Resources/config/routing.yml'
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <br>
+    <h2 style="text-align: center;">Create Product</h2>
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.category) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.code) }}
+        {{ form_row(form.stock) }}
+        {{ form_row(form.availability) }}
+        {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}
