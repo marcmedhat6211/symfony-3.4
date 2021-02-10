@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div class="container">
+    <h3>Hello, Please check the categories we have at ou website</h3>
+
+    <p>
+        we have the following categories in our website: <br>
+        {% for category in categories %}
+            {{ category.title }}<br>
+        {% endfor %}
+    </p>
+    To login to our website and see our categories and products please go to: <a href="{{ url('fos_user_security_login') }}">Check out our
+        E-commerce website!</a>.
+    Thanks!
+</div>
+</body>
+</html>

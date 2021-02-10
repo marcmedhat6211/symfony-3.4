@@ -92,4 +92,10 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+    registration:
+        confirmation:
+            enabled:    true
+
+welp_mailchimp:
+    api_key: YOURMAILCHIMPAPIKEY
 

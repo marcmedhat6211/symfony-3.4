@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new \ProductBundle\ProductBundle(),
             new \UserBundle\UserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Welp\MailchimpBundle\WelpMailchimpBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
