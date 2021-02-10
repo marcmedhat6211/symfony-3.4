@@ -33,7 +33,6 @@ services:
         resource: '../../src/ProductBundle/Repository'
         tags: ['doctrine.repository_service']
 
-    # add more services, or override services that need manual wiring
-    # AppBundle\Service\ExampleService:
-    #     arguments:
-    #         $someArgument: 'some_value'
+    ProductBundle\Service\:
+        resource: '../../src/ProductBundle/Service/*'
+        public: true

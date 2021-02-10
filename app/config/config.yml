@@ -7,10 +7,12 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    app.locals: en|ar
 
 framework:
     #esi: ~
-    translator: ~
+#    translator: { fallbacks: [en] }
+    translator: { fallbacks: "%locale%" }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'

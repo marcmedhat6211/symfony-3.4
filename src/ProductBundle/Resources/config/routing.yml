@@ -1,22 +1,25 @@
 app:
     resource: '@ProductBundle/Controller/'
     type: annotation
+    prefix: /{_locale}
+    requirements:
+        _locale: "%app.locals%"
 
 #Category Entity routes
-category.index:
-    path: /category/{page}
-    defaults: { _controller: ProductBundle:Category:index }
-    requirements:
-        page: '\d+'
-
-category.create:
-    path: /category/create
-    defaults: { _controller: ProductBundle:Category:create }
-
-category.edit:
-    path: /edit/{id}
-    defaults: { _controller: ProductBundle:Category:edit }
-
-category.delete:
-    path: /delete/{id}
-    defaults: { _controller: ProductBundle:Category:delete }
+#category.index:
+#    path: /category/{page}
+#    defaults: { _controller: ProductBundle:Category:index }
+#    requirements:
+#        page: '\d+'
+#
+#category.create:
+#    path: /category/create
+#    defaults: { _controller: ProductBundle:Category:create }
+#
+#category.edit:
+#    path: /edit/{id}
+#    defaults: { _controller: ProductBundle:Category:edit }
+#
+#category.delete:
+#    path: /delete/{id}
+#    defaults: { _controller: ProductBundle:Category:delete }

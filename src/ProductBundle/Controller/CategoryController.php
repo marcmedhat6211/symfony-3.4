@@ -8,10 +8,23 @@ use ProductBundle\Form\CategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
 //use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/category", name="category.")
+ *
+ */
 class CategoryController extends Controller
 {
+
+    /**
+     * @Route("/{page}", name="index", requirements={
+                "page"="\d+"
+     *     }
+     *  )
+     */
     public function indexAction($page = 1): Response
     {
         $em = $this->getDoctrine()->getManager();
@@ -23,6 +36,9 @@ class CategoryController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/create", name="create")
+     */
     public function createAction(Request $request) {
         $category = new Category();
         $em = $this->getDoctrine()->getManager();
@@ -47,6 +63,9 @@ class CategoryController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/edit/{id}", name="edit")
+     */
     public function editAction(Request $request, Category $category) {
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(CategoryType::class, $category);
@@ -64,6 +83,9 @@ class CategoryController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/delete/{id}", name="delete")
+     */
     public function deleteAction(Category $category) {
         $em = $this->getDoctrine()->getManager();
         $em->remove($category);

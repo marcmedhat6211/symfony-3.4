@@ -8,14 +8,12 @@ use App\Form\EditProductFormType;
 use App\Repository\AccessoryRepository;
 use App\Repository\ProductRepository;
 use App\Services\FileUploader;
-use Doctrine\Common\Collections\ArrayCollection;
 use ProductBundle\Entity\Product;
 use ProductBundle\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * @Route("/product", name="product.")
@@ -23,7 +21,10 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class ProductController extends Controller
 {
     /**
-     * @Route("/{page}", name="index", requirements={"page"="\d+"})
+     * @Route("/{page}", name="index", requirements={
+     *     "page"="\d+"
+     * }
+     *     )
      */
     public function indexAction($page = 1): Response
     {
@@ -50,7 +51,6 @@ class ProductController extends Controller
      * @Route("/create", name="create")
      */
     public function createAction(Request $request) {
-        //getting the entity manager
         $em = $this->getDoctrine()->getManager();
         $product = new Product();
 
